@@ -1,0 +1,18 @@
+{
+  "name": "hashingcracking101",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Xcrowzz",
+  "license": "ISC",
+  "dependencies": {
+    "argon2": "^0.24.0",
+    "bcrypt": "^3.0.6",
+    "md5": "^2.2.1",
+    "scrypt": "^6.0.3",
+    "sha1": "^1.1.1"
+  }
+}
