@@ -12,7 +12,7 @@
     "argon2": "^0.24.0",
     "bcrypt": "^3.0.6",
     "md5": "^2.2.1",
-    "scrypt": "^6.0.3",
+    "scrypt": "github:barrysteyn/node-scrypt#fb60a8d3c158fe115a624b5ffa7480f3a24b03fb",
     "sha1": "^1.1.1"
   }
 }

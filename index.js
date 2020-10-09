@@ -2,7 +2,7 @@ const md5 = require('md5');
 const sha1 = require('sha1');
 const bcrypt = require('bcrypt');
 const argon2 = require('argon2');
-const scrypt = require('scrypt');
+// const scrypt = require('scrypt'); Scrypt is fucky with node12, waiting for owner to resolve see https://github.com/4tale/Kidari-backend/issues/24
 
 
 const pwd = {
@@ -18,6 +18,7 @@ const hashes = {
 };
 
 const decrypt = (ashes) => {
+// TODO actually decrypt
   console.log(ashes);
 };
 
@@ -40,11 +41,11 @@ const genHashes = async () => {
   hashes.strong.push({algorithm: "bcrypt", hash: bcrypt.hashSync(pwd.STR, 8)});
   console.timeEnd('Generating bcrypt hashes (Blowfish)');
 
-  console.time('Generating scrypt hashes');
-  hashes.low.push({algorithm: "scrypt", hash: scrypt.hashSync(pwd.LOW, {"N":1024,"r":8,"p":16}, 64, "").toString("hex")});
-  hashes.medium.push({algorithm: "scrypt", hash: scrypt.hashSync(pwd.MED, {"N":1024,"r":8,"p":16}, 64, "").toString("hex")});
-  hashes.strong.push({algorithm: "scrypt", hash: scrypt.hashSync(pwd.STR, {"N":1024,"r":8,"p":16}, 64, "").toString("hex")});
-  console.timeEnd('Generating scrypt hashes');
+//  console.time('Generating scrypt hashes');
+//  hashes.low.push({algorithm: "scrypt", hash: scrypt.hashSync(pwd.LOW, {"N":1024,"r":8,"p":16}, 64, "").toString("hex")});
+//  hashes.medium.push({algorithm: "scrypt", hash: scrypt.hashSync(pwd.MED, {"N":1024,"r":8,"p":16}, 64, "").toString("hex")});
+//  hashes.strong.push({algorithm: "scrypt", hash: scrypt.hashSync(pwd.STR, {"N":1024,"r":8,"p":16}, 64, "").toString("hex")});
+//  console.timeEnd('Generating scrypt hashes');
 
   console.time('Generating Argon2 hashes');
   hashes.low.push({algorithm: "argon2", hash: await argon2.hash(pwd.LOW)});
